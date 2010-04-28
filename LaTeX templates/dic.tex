@@ -1,44 +1,51 @@
-	\documentclass{article} %notitlepage
+\documentclass{article} %notitlepage
+
+\usepackage[spanish]{babel}
+\usepackage{lexikon}
+%\usepackage[landscape,a4paper]{geometry}
+\usepackage[latin1]{inputenc}
+\usepackage{fullpage}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+%\usepackage[print,four]{booklet}
+
+\author{Leonardo Molas}
+%\def\dictfile{test}
+\begin{document}
+
+\setlength{\leftfield}{0.1\textwidth}
+\setlength{\rightfield}{0.3\textwidth}
+\setlength{\headheight}{25pt}
+\fancyhead{}          % empty out the header
+\fancyfoot{}          % empty out the footer
+\fancyhead[LE,LO]{\rightmark} % left side, odd and even pages
+\fancyhead[RE,RO]{\leftmark}  % right side, odd and even pages
+\fancyfoot[LE,RO]{\thepage}   % left side even, right side odd
+\setlength{\columnseprule}{0.3pt}
+\pagestyle{fancy}
+
+\begin{multicols}{2}
 	
-	\usepackage[spanish]{babel}
-	\usepackage{lexikon}
-	%\usepackage[landscape,a4paper]{geometry}
-	\usepackage[latin1]{inputenc}
-	\usepackage{fullpage}
-	\usepackage{multicol}
-	\usepackage{hyperref}
-	\usepackage{fancyhdr}
-	%\usepackage[print,four]{booklet}
-	
-	\author{Leonardo Molas}
-	%\def\dictfile{test}
-	\begin{document}
-	
-	\setlength{\leftfield}{0.1\textwidth}
-	\setlength{\rightfield}{0.3\textwidth}
-	\setlength{\headheight}{25pt}
-	\fancyhead{}          % empty out the header
-	\fancyfoot{}          % empty out the footer
-	\fancyhead[LE,LO]{\rightmark} % left side, odd and even pages
-	\fancyhead[RE,RO]{\leftmark}  % right side, odd and even pages
-	\fancyfoot[LE,RO]{\thepage}   % left side even, right side odd
-	\setlength{\columnseprule}{0.3pt}
-	\pagestyle{fancy}
-	
-	\begin{multicols}{2}
-		
-	\pdfbookmark{.abu}{}
-	\dictchar{.abu}
-	\dictentry{bacru}{}{g}{\hypertarget{thelabel}{asdasd}
-	}
-	  {}{}{}{$x_{1}$ pronuncia/ dice/ verbaliza/ vocaliza/ hace sonido $x_{2}$ (Ver también krixa, cusku.)}\markboth{bacru}{bacru}
-	\dictentry{badna}{}{g}{}
-	  {}{}{}{$x_{1}$ es una banana/ plátano (fruta) de especie/ variedad $x_{2}$}
-	  
-	\end{multicols}
-	
-	\newpage 
-	
-	\hyperlink{thelabel}{text}
-	
-	\end{document}
+\pdfbookmark{by.}{}
+\dictchar{by.}
+\dictentry{bacru}{}{g}{\hypertarget{bacru}{}}
+  {}{}{}{$x_{1}$ pronuncia/ dice/ verbaliza/ vocaliza/ hace sonido $x_{2}$ (Ver también krixa, cusku.)}\markboth{bacru}{bacru}
+\dictentry{badna}{}{g}{\hypertarget{badna}{}}
+  {}{}{}{$x_{1}$ es una banana/ plátano (fruta) de especie/ variedad $x_{2}$}
+  
+\end{multicols}
+
+\newpage 
+\setlength{\leftfield}{0.25\textwidth}
+\setlength{\rightfield}{0.25\textwidth}
+\begin{multicols}{2}
+\dictchar{B}
+\dictentry{banana}{}{}{}
+  {\hyperlink{badna}{badna}}{}{}{}
+\dictchar{P}
+\dictentry{pronunciar}{}{}{en el sentido de decir}
+  {\hyperlink{bacru}{bacru}}{}{}{}
+
+\end{multicols}
+\end{document}
