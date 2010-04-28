@@ -1,0 +1,13 @@
+El documento tendrá:
+
+* Título
+
+* TOC
+
+* Version history
+
+* How to use this dictionary
+
+* (Para el futuro) Guía de pronunciación
+
+* Lojban - English
