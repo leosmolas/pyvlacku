@@ -1,4 +1,5 @@
 latextemplates/*.*
-ªlatextemplates/*.tex
-ªlatextemplates/*.bib
-ªlatextemplates/*.txt
+!latextemplates/*.tex
+!latextemplates/*.bib
+!latextemplates/*.txt
+*.pyc

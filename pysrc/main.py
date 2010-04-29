@@ -1,19 +1,21 @@
 from xml.sax import make_parser
 from xml.sax.handler import feature_namespaces
-from parser import Parser
+# from xml.sax import ContentHandler
+from dicparser import DicParser
 
 if __name__ == '__main__':
-    # Create a parser
-    parser = make_parser()
+	# Create a parser
+	p = make_parser()
 
     # Tell the parser we are not interested in XML namespaces
-    parser.setFeature(feature_namespaces, 0)
+	p.setFeature(feature_namespaces, 0)
 
     # Create the handler
-    dh = Parser()
+	dh = DicParser()
 
     # Tell the parser to use our handler
-    parser.setContentHandler(dh)
+	p.setContentHandler(dh)
 
     # Parse the input
-    parser.parse('spanish.xml')
+	p.parse('spanish.xml')
+	
