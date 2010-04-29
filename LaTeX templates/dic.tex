@@ -1,37 +1,79 @@
-\documentclass{article} %notitlepage
+\documentclass[ipa,twoside]{report} 
 
 \usepackage[spanish]{babel}
-\usepackage{lexikon}
-%\usepackage[landscape,a4paper]{geometry}
+\usepackage[phonetic]{lexikon}
 \usepackage[latin1]{inputenc}
 \usepackage{fullpage}
 \usepackage{multicol}
-\usepackage{hyperref}
+\usepackage[colorlinks=true,urlcolor=Violet]{hyperref}
 \usepackage{fancyhdr}
-%\usepackage[print,four]{booklet}
 
-\author{Leonardo Molas}
-%\def\dictfile{test}
+\author{Comunidad Lojbánica}
+\title{Diccionario\\Lojban - Castellano\\Castellano - Lojban}
+
 \begin{document}
-
 \setlength{\leftfield}{0.1\textwidth}
 \setlength{\rightfield}{0.3\textwidth}
+\setcounter{secnumdepth}{-2} 
+\maketitle
+
+
+
+\tableofcontents
+
+\section{Historial de versiones}
+
+Esta es la versión {\bfseries v0.01}, sólo para mí :)
+
+\section{Cómo usar este diccionario}
+
+En la sección \textbf{Lojban - Castellano}, encontrará la lista con todos los \textsl{valsi} ordenados alfabéticamente (en el alfabeto de Lojban). Se parecerán a:
+
+\begin{center}
+\begin{minipage}[t]{0.55\textwidth}
+	\dictchar{by.}
+	\dictentry{bacru}{/ba\esh ru/}{g}{}
+	  {}{}{}{$x_{1}$ pronuncia/ dice/ verbaliza/ vocaliza/ hace sonido $x_{2}$ (Ver también krixa, cusku.)}
+\end{minipage}
+\end{center}
+
+En la columna de la derecha, se encuentra el \textsl{valsi} que se definirá. Estará seguido por una de las siguientes letras, que indicarán el tipo de palabra, según la siguiente lista:
+
+\begin{tabular}{ l l }
+  \textit{g} & \textbf{\emph{gismu}}  \\
+  \textit{f} & \textbf{\emph{fu'ivla}}  \\
+  \textit{l} & \textbf{\emph{lujvo}}  \\
+  \textit{c} & \textbf{\emph{cmavo}} \\
+  \textit{n} & \textbf{\emph{cmene}} \\
+\end{tabular}
+
+Abajo del \textsl{valsi}, entre barras (``/'') se encontrará la pronunciación de la palabra, escrita en la representación \textbf{IPA}.
+
+En la columna de la derecha está la definición en castellano, con su correspondiente esctructura de lugares.
+
+\newpage
+
 \setlength{\headheight}{25pt}
-\fancyhead{}          % empty out the header
-\fancyfoot{}          % empty out the footer
+\fancyhead{}				          % empty out the header
+\fancyfoot{}        				  % empty out the footer
 \fancyhead[LE,LO]{\rightmark} % left side, odd and even pages
 \fancyhead[RE,RO]{\leftmark}  % right side, odd and even pages
 \fancyfoot[LE,RO]{\thepage}   % left side even, right side odd
 \setlength{\columnseprule}{0.3pt}
 \pagestyle{fancy}
-
+\thispagestyle{plain}
+\section*{Lojban - Castellano}
+\addcontentsline{toc}{section}{Lojban - Castellano}
+\label{sec:lojcas}
 \begin{multicols}{2}
-	
-\pdfbookmark{by.}{}
+
+\addcontentsline{toc}{subsection}{by.}
 \dictchar{by.}
-\dictentry{bacru}{}{g}{\hypertarget{bacru}{}}
-  {}{}{}{$x_{1}$ pronuncia/ dice/ verbaliza/ vocaliza/ hace sonido $x_{2}$ (Ver también krixa, cusku.)}\markboth{bacru}{bacru}
-\dictentry{badna}{}{g}{\hypertarget{badna}{}}
+\hypertarget{bacru}{}
+\dictentry{bacru}{}{g}{}
+  {}{}{}{$x_{1}$ pronuncia/ dice/ verbaliza/ vocaliza/ hace sonido $x_{2}$ (Ver también krixa, cusku.)}
+  \hypertarget{badna}{}
+\dictentry{badna}{}{g}{}
   {}{}{}{$x_{1}$ es una banana/ plátano (fruta) de especie/ variedad $x_{2}$}
   
 \end{multicols}
@@ -39,6 +81,10 @@
 \newpage 
 \setlength{\leftfield}{0.25\textwidth}
 \setlength{\rightfield}{0.25\textwidth}
+\thispagestyle{plain}
+\section*{Castellano - Lojban}
+\addcontentsline{toc}{section}{Castellano - Lojban}
+\label{sec:casloj}
 \begin{multicols}{2}
 \dictchar{B}
 \dictentry{banana}{}{}{}
