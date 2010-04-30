@@ -3,3 +3,11 @@ latextemplates/*.*
 !latextemplates/*.bib
 !latextemplates/*.txt
 *.pyc
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.pdf
+*.toc
+jbocas.tex
