@@ -25,7 +25,7 @@ def list2tex (list,file):
 		if word[0]!=currentLetter:
 			currentLetter = word[0]
 			newLetter = letter2jbo(currentLetter)
-			f.write(u'\\addcontentsline{toc}{subsection}{' + unicode(newLetter) +u'}\n' +
+			f.write(u'\\phantomsection\\addcontentsline{toc}{section}{' + unicode(newLetter) +u'}\n' +
 					u'\\dictchar{'+ unicode(newLetter)+u'}\n')
 		#f.write(u'\\hypertarget{val:' + unicode(word) + u'}{}\n')
 		f.write(u'\\dictentry{' + unicode(word) + u'}{}{' + unicode(type2short[type]) + u'}{')

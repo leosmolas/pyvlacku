@@ -14,20 +14,20 @@
 \begin{document}
 \setlength{\leftfield}{0.1\textwidth}
 \setlength{\rightfield}{0.3\textwidth}
-\setcounter{secnumdepth}{-2} 
+%\setcounter{secnumdepth}{-2} 
 \maketitle
-
-
 
 \tableofcontents
 
-\section{Historial de versiones}
+\addcontentsline{toc}{chapter}{Historial de versiones}
+\chapter*{Historial de versiones}
 
 Esta es la versión {\bfseries v0.01}, sólo para mí :)
 
-\section{Cómo usar este diccionario}
+\addcontentsline{toc}{chapter}{Cómo usar este diccionario}
+\chapter*{Cómo usar este diccionario}
 
-En la sección \textbf{Lojban - Castellano}, encontrará la lista con todos los \textsl{valsi} ordenados alfabéticamente (en el alfabeto de Lojban). Se parecerán a:
+En el capítulo \textbf{Lojban - Castellano}, encontrará la lista con todos los \textsl{valsi} ordenados alfabéticamente (en el alfabeto de Lojban). Se parecerán a:
 
 \begin{center}
 \begin{minipage}[t]{0.55\textwidth}
@@ -61,24 +61,34 @@ En la columna de la derecha está la definición en castellano, con su correspondi
 \fancyfoot[LE,RO]{\thepage}   % left side even, right side odd
 \setlength{\columnseprule}{0.3pt}
 \pagestyle{fancy}
+\fancypagestyle{plain}{%
+	\fancyhf{}%
+	\fancyfoot[C]{\thepage}%
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0pt}
+}
 \thispagestyle{plain}
-\section*{Lojban - Castellano}
-\addcontentsline{toc}{section}{Lojban - Castellano}
-\label{sec:lojcas}
+
+\chapter*{Lojban - Castellano}
+\addcontentsline{toc}{chapter}{Lojban - Castellano}
+
+\label{cha:lojcas}
 \begin{multicols}{2}
 
-\include{jbocas}
+\input{jbocas}
   
 \end{multicols}
 
 \newpage 
 \setlength{\leftfield}{0.25\textwidth}
 \setlength{\rightfield}{0.25\textwidth}
+
 \thispagestyle{plain}
-\section*{Castellano - Lojban}
-\addcontentsline{toc}{section}{Castellano - Lojban}
-\label{sec:casloj}
-\begin{multicols}{2}
+\chapter*{Castellano - Lojban}
+\addcontentsline{toc}{chapter}{Castellano - Lojban}
+
+%\label{sec:casloj}
+%\begin{multicols}{2}
 %\dictchar{B}
 %\dictentry{banana}{}{}{}
 %  {\hyperlink{badna}{badna}}{}{}{}
@@ -86,5 +96,5 @@ En la columna de la derecha está la definición en castellano, con su correspondi
 %\dictentry{pronunciar}{}{}{en el sentido de decir}
 %  {\hyperlink{bacru}{bacru}}{}{}{}
 
-\end{multicols}
+%\end{multicols}
 \end{document}
