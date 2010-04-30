@@ -1,0 +1,9 @@
+pyvlacku
+
+I'm creating this dictionary, in order to have one fully linked, and with a better formatting, than the one that is automatically created in jbovlaste.
+
+In order to do that, I'm developing a python script that receives an xml (you can export this in jbovlaste) and parses it, making a LaTeX file.
+
+In the folder "latextemplates" I put the first approches to the .tex file. In "pysrc", there are some .py files with the program, and a .tex, that would be like the one in the other folder.
+
+This proyect (software) is under GPL v3. All the words are in Public Domain, so the dictionary itself is in Public Domain.

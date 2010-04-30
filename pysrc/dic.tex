@@ -5,16 +5,24 @@
 \usepackage[latin1]{inputenc}
 \usepackage{fullpage}
 \usepackage{multicol}
-\usepackage[colorlinks=true,urlcolor=Violet]{hyperref}
+\usepackage[colorlinks=true]{hyperref}
 \usepackage{fancyhdr}
 
 \author{Comunidad Lojbánica}
 \title{Diccionario\\Lojban - Castellano\\Castellano - Lojban}
 
 \begin{document}
+
 \setlength{\leftfield}{0.1\textwidth}
 \setlength{\rightfield}{0.3\textwidth}
 %\setcounter{secnumdepth}{-2} 
+\fancypagestyle{plain}{%
+	\fancyhf{}%
+	\fancyfoot[LE,RO]{\thepage}%
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0pt}
+}
+
 \maketitle
 
 \tableofcontents
@@ -61,12 +69,6 @@ En la columna de la derecha está la definición en castellano, con su correspondi
 \fancyfoot[LE,RO]{\thepage}   % left side even, right side odd
 \setlength{\columnseprule}{0.3pt}
 \pagestyle{fancy}
-\fancypagestyle{plain}{%
-	\fancyhf{}%
-	\fancyfoot[C]{\thepage}%
-	\renewcommand{\headrulewidth}{0pt}
-	\renewcommand{\footrulewidth}{0pt}
-}
 \thispagestyle{plain}
 
 \chapter*{Lojban - Castellano}
@@ -97,4 +99,10 @@ En la columna de la derecha está la definición en castellano, con su correspondi
 %  {\hyperlink{bacru}{bacru}}{}{}{}
 
 %\end{multicols}
+
+\addcontentsline{toc}{chapter}{Copyleft}
+\chapter*{Copyleft}
+El lenguaje \textbf{Lojban} está en Dominio Público, y este libro también lo está por el momento.
+
+Este libro fue generado a partir de datos extraidos de la página de jbovlaste (\url{http://jbovlaste.lojban.org/}), a partir del programa \textbf{\ttfamily pyvalcku}, creado por \textbf{Leo Molas}, y se puede encontrar en \url{http://github.com/leosmolas/pyvlacku}, bajo la licencia GPL v3 (\url{http://www.gnu.org/licenses/gpl.html}).
 \end{document}
