@@ -15,7 +15,9 @@ def letter2jbo(letter):
 		return letter + 'y.'
 		
 def braces2links(s):
-	return re.sub(r'\{(.+?)\}', r"\\hyperref[val:\1]{\1}", s)
+	def f(s):
+		return "\\hyperref[val:%s]{%s}" %(s, s.replace("'","h"))
+	return re.sub(r'\{(.+?)\}', f, s)#r"\\hyperref[val:\1]{\2}"
 
 		
 def list2tex (list,file):
@@ -31,7 +33,7 @@ def list2tex (list,file):
 			currentLetter = word[0]
 			newLetter = letter2jbo(currentLetter)
 			f.write(u'\\phantomsection\\addcontentsline{toc}{section}{%s}\n \\dictchar{%s}\n' % (unicode(newLetter),unicode(newLetter)))
-		f.write(u'\\phantomsection\\label{val:%s}' % (unicode(word)))
+		f.write(u'\\phantomsection\\label{val:%s}' % (unicode(word).replace("'","h")))
 		f.write(u'\\dictentry{%s}{}{%s}{' % (unicode(word),unicode(type2short[type])))
 		if 'rafsi' in valsi:
 			f.write('\\textit{%s}\\\\' % unicode(valsi['rafsi']))

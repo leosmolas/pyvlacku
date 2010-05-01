@@ -6,4 +6,4 @@ In order to do that, I'm developing a python script that receives an xml (you ca
 
 In the folder "latextemplates" I put the first approches to the .tex file. In "pysrc", there are some .py files with the program, and a .tex, that would be like the one in the other folder.
 
-This proyect (software) is under GPL v3. All the words are in Public Domain, so the dictionary itself is in Public Domain.
+This proyect (software) is under GPL v3. All the words are in Public Domain, so the dictionaries (the pdf's) are in Public Domain.
