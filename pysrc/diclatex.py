@@ -16,8 +16,8 @@ def letter2jbo(letter):
 		
 def braces2links(s):
 	def f(s):
-		return "\\hyperref[val:%s]{%s}" %(s, s.replace("'","h"))
-	return re.sub(r'\{(.+?)\}', f, s)#r"\\hyperref[val:\1]{\2}"
+		return "\\hyperref[val:%s]{%s}" % (s.group(0), s.group(0).replace("'","h")) #con group 1 anda
+	return re.sub(r'\{(.+?)\}', f, s) #r"\\hyperref[val:\1]{\2}"
 
 		
 def list2tex (list,file):
