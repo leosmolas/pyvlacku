@@ -14,16 +14,26 @@ class DicParser(ContentHandler):
 	def __init__(self):
 		#list with dictionaries (or associative arrays), which have all the entries, like valsi, selma'o, definition and notes
 		self.list = []
+		self.inverse = False #if true, we are on lojban to X. if false, X  to lojban
 		self.inSelmaho = False
 		self.inDefinition = False
 		self.inNotes = False
 		self.inRafsi = False
 		
-	def startElement(self, name, attrs):        
+	def startElement(self, name, attrs):
+		if name == 'direction':
+			self.inverse = attrs.get('from') == 'lojban'
+		elif inverse:
+			self.parseInverse(name,attrs)
+		else:
+			self.parseDirect(name,attrs)
+			
+	def parseDirect(self,name,attrs):
 		if name == 'valsi':
 			word = attrs.get('word')
 			type = attrs.get('type')
 			self.list+=[{u'word':word,u'type':type}]
+			
 		elif name == 'selmaho':
 			self.inSelmaho = True
 			self.selmaho = ""
@@ -37,7 +47,8 @@ class DicParser(ContentHandler):
 			self.inRafsi = True
 			self.rafsi = ""
 		
-	
+	def parseInverse(self,name,attrs):
+		
 	def characters(self,ch):
 		ch = substitute(ch)
 		if self.inSelmaho:
