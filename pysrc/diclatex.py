@@ -59,5 +59,5 @@ def list2TeX (list,f):
 		f.write(u'}\n\n')
 
 def inverseList2TeX(list,f):
-	list = sorted(list, key = lambda list:list['word'])
-	print list
+	list = sorted(list, key = lambda list:list['word']) #this weird line does magic to order the list
+	
