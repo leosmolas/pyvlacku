@@ -16,7 +16,7 @@ def letter2jbo(letter):
 		
 def braces2links(s):
 	def f(s):
-		return "\\hyperref[val:%s]{%s}" % (s.group(0), s.group(0).replace("'","h")) #con group 1 anda
+		return "\\hyperlink{val:%s}{%s}" % (s.group(1).replace("'","h"), s.group(1)) #I don't really understand this line...
 	return re.sub(r'\{(.+?)\}', f, s) #r"\\hyperref[val:\1]{\2}"
 
 		
@@ -33,7 +33,7 @@ def list2tex (list,file):
 			currentLetter = word[0]
 			newLetter = letter2jbo(currentLetter)
 			f.write(u'\\phantomsection\\addcontentsline{toc}{section}{%s}\n \\dictchar{%s}\n' % (unicode(newLetter),unicode(newLetter)))
-		f.write(u'\\phantomsection\\label{val:%s}' % (unicode(word).replace("'","h")))
+		f.write(u'\\hypertarget{val:%s}{\\0}' % (unicode(word).replace("'","h")))
 		f.write(u'\\dictentry{%s}{}{%s}{' % (unicode(word),unicode(type2short[type])))
 		if 'rafsi' in valsi:
 			f.write('\\textit{%s}\\\\' % unicode(valsi['rafsi']))
