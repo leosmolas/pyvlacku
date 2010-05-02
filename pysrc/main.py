@@ -22,6 +22,7 @@ from xml.sax import make_parser
 from xml.sax.handler import feature_namespaces
 from dicparser import DicParser
 import diclatex
+import codecs
 
 if __name__ == '__main__':
 	# Create a parser
@@ -39,7 +40,10 @@ if __name__ == '__main__':
     # Parse the input
 	p.parse('spanish.xml')
 	
+	f = codecs.open('jbocas.tex', "w", "mbcs") #mbcs is the ansi codec. for utf: utf_8_sig
 	# Create the .tex file from the list obtained, writing the section 
-	f = diclatex.list2tex(dh.list, 'jbocas.tex')
-	
-	#
+	diclatex.list2TeX(dh.list, f)
+	f.close()
+	g =  codecs.open('casjbo.tex', "w", "mbcs")
+	diclatex.inverseList2TeX(dh.inverseList,g)
+	g.close()

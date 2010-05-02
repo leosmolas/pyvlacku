@@ -1,6 +1,5 @@
 ﻿# -*- coding: utf-8 -*-
 import string
-import codecs
 import re
 
 type2short = {'gismu':'g','fu\'ivla':'f','lujvo':'l','cmene':'n','cmavo':'c','cmavo cluster':'cc','experimental gismu':'eg'}
@@ -35,8 +34,8 @@ def braces2links(s):
 def breakSlashes(s):
 	return re.sub('/',r'\\fshyp{}\\discretionary{}{}{}',s)
 
-def list2tex (list,file):
-	f = codecs.open(file, "w", "mbcs")#utf_8_sig
+def list2TeX (list,f):
+	
 		
 	result = ""
 	currentLetter = ' '
@@ -58,6 +57,7 @@ def list2tex (list,file):
 		if 'notes' in valsi:
 			f.write(u'\\\\ \\textit{%s}' % braces2links(valsi['notes']))
 		f.write(u'}\n\n')
-	f.close()
-	return f
 
+def inverseList2TeX(list,f):
+	list = sorted(list, key = lambda list:list['word'])
+	print list
