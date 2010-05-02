@@ -5,6 +5,19 @@ import re
 
 type2short = {'gismu':'g','fu\'ivla':'f','lujvo':'l','cmene':'n','cmavo':'c','cmavo cluster':'cc','experimental gismu':'eg'}
 
+#this go from place structure to the SE selma'o
+def place2SE(i):
+	if i == 2:
+		return 'se '
+	elif i == 3:
+		return 'te '
+	elif i == 4:
+		return 've '
+	elif i == 5:
+		return 'xe '
+	else:
+		return ''
+
 def letter2jbo(letter):
 	letter.lower()
 	if letter in ('a','e','i','o','u'):
@@ -33,7 +46,7 @@ def list2tex (list,file):
 			currentLetter = word[0]
 			newLetter = letter2jbo(currentLetter)
 			f.write(u'\\phantomsection\\addcontentsline{toc}{section}{%s}\n \\dictchar{%s}\n' % (unicode(newLetter),unicode(newLetter)))
-		f.write(u'\\hypertarget{val:%s}{\\null}' % (unicode(word).replace("'","h")))
+		f.write(u'\\hypertarget{val:%s}{\\null}' % (unicode(word).replace("'","h"))) #this \null is there because it magically fixes a bug. When I left the second parameter of hypertarget empty, all the multicolumns enviroment breaks
 		f.write(u'\\dictentry{%s}{}{%s}{' % (unicode(word),unicode(type2short[type])))
 		if 'rafsi' in valsi:
 			f.write('\\textit{%s}\\\\' % unicode(valsi['rafsi']))
@@ -44,4 +57,5 @@ def list2tex (list,file):
 			f.write(u'\\\\ \\textit{%s}' % braces2links(valsi['notes']))
 		f.write(u'}\n\n')
 	f.close()
+	return f
 

@@ -14,26 +14,28 @@ class DicParser(ContentHandler):
 	def __init__(self):
 		#list with dictionaries (or associative arrays), which have all the entries, like valsi, selma'o, definition and notes
 		self.list = []
+		self.inverseList = []
 		self.inverse = False #if true, we are on lojban to X. if false, X  to lojban
+		#this variables
 		self.inSelmaho = False
 		self.inDefinition = False
 		self.inNotes = False
 		self.inRafsi = False
+		(self.selmaho,self.valsi,self.notes,self.rafsi) = ('','','','')
 		
 	def startElement(self, name, attrs):
 		if name == 'direction':
-			self.inverse = attrs.get('from') == 'lojban'
-		elif inverse:
+			self.inverse = attrs.get('to') == 'lojban'
+		elif self.inverse:
 			self.parseInverse(name,attrs)
 		else:
 			self.parseDirect(name,attrs)
 			
 	def parseDirect(self,name,attrs):
 		if name == 'valsi':
-			word = attrs.get('word')
-			type = attrs.get('type')
-			self.list+=[{u'word':word,u'type':type}]
-			
+			self.word = attrs.get('word')
+			self.type = attrs.get('type')
+			self.list+=[{u'word':self.word,u'type':self.type}]
 		elif name == 'selmaho':
 			self.inSelmaho = True
 			self.selmaho = ""
@@ -48,7 +50,16 @@ class DicParser(ContentHandler):
 			self.rafsi = ""
 		
 	def parseInverse(self,name,attrs):
-		
+		if name == "nlword":
+			dict = {}
+			dict['word'] = attrs.get('word')
+			dict['valsi'] = attrs.get('valsi')
+			if 'sense' in attrs:
+				dict['sense'] = attrs.get('sense')
+			if 'place' in attrs:
+				dict['place'] = int(attrs.get('place'))
+			self.inverseList += [dict]
+	
 	def characters(self,ch):
 		ch = substitute(ch)
 		if self.inSelmaho:

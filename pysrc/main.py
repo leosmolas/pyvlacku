@@ -39,5 +39,7 @@ if __name__ == '__main__':
     # Parse the input
 	p.parse('spanish.xml')
 	
-	# Create the .tex file from the list obtained
-	diclatex.list2tex(dh.list, 'jbocas.tex')
+	# Create the .tex file from the list obtained, writing the section 
+	f = diclatex.list2tex(dh.list, 'jbocas.tex')
+	
+	#
