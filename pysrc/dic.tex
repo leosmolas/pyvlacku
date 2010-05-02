@@ -7,11 +7,14 @@
 \usepackage{multicol}
 \usepackage[colorlinks=true]{hyperref}
 \usepackage{fancyhdr}
-
+\usepackage{hyphenat}
 \author{Comunidad Lojbánica}
 \title{Diccionario\\Lojban - Castellano\\Castellano - Lojban}
 
 \begin{document}
+
+\def\/{\discretionary{.}{}{.}}
+
 
 \setlength{\leftfield}{0.1\textwidth}
 \setlength{\rightfield}{0.3\textwidth}

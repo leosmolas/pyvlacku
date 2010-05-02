@@ -18,8 +18,10 @@ def braces2links(s):
 	def f(s):
 		return "\\hyperlink{val:%s}{%s}" % (s.group(1).replace("'","h"), s.group(1)) #I don't really understand this line...
 	return re.sub(r'\{(.+?)\}', f, s) #r"\\hyperref[val:\1]{\2}"
+	
+def breakSlashes(s):
+	return re.sub('/',r'\\fshyp{}\\discretionary{}{}{}',s)
 
-		
 def list2tex (list,file):
 	f = codecs.open(file, "w", "mbcs")#utf_8_sig
 		
@@ -39,7 +41,7 @@ def list2tex (list,file):
 			f.write('\\textit{%s}\\\\' % unicode(valsi['rafsi']))
 		if 'selmaho' in valsi:
 			f.write('\\textbf{%s}' % valsi['selmaho'])
-		f.write(u'}\n {}{}{}{%s'% valsi['definition'])
+		f.write(u'}\n {}{}{}{%s'% breakSlashes(valsi['definition']))
 		if 'notes' in valsi:
 			f.write(u'\\\\ \\textit{%s}' % braces2links(valsi['notes']))
 		f.write(u'}\n\n')
