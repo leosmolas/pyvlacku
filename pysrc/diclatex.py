@@ -1,4 +1,22 @@
 ﻿# -*- coding: utf-8 -*-
+    # pyvlacku
+	# Lojban dictionary
+    # Copyright (C) 2010  Leo Molas
+
+    # This program is free software: you can redistribute it and/or modify
+    # it under the terms of the GNU General Public License as published by
+    # the Free Software Foundation, either version 3 of the License, or
+    # (at your option) any later version.
+
+    # This program is distributed in the hope that it will be useful,
+    # but WITHOUT ANY WARRANTY; without even the implied warranty of
+    # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    # GNU General Public License for more details.
+
+    # You should have received a copy of the GNU General Public License
+    # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+	
+	#My e-mail: leos(dot)molas(at)gmail(dot)com
 import string
 import re
 import unicodedata
@@ -64,7 +82,7 @@ def list2TeX (list,f):
 		if word[0]!=currentLetter:
 			currentLetter = word[0]
 			newLetter = letter2jbo(currentLetter)
-			f.write(u'\\phantomsection\\addcontentsline{toc}{section}{%s}\n \\dictchar{%s}\n' % (unicode(newLetter),unicode(newLetter)))
+			f.write(u'\\phantomsection\\addcontentsline{toc}{section}{%s} \\dictchar{%s}\n' % (unicode(newLetter),unicode(newLetter)))
 		f.write(u'\\hypertarget{val:%s}{\\null}' % (unicode(word).replace("'","h"))) #this \null is there because it magically fixes a bug. When I left the second parameter of hypertarget empty, all the multicolumns enviroment breaks
 		f.write(u'\\dictentry{%s}{}{%s}{' % (unicode(word),unicode(type2short[type])))
 		if 'rafsi' in valsi:
@@ -87,18 +105,22 @@ def inverseList2TeX(list,f):
 	for i in range(len(list)):
 		entry = list[i]
 		natWord = entry['word']
-		if stripAccents(natWord)[0].upper()!=currentLetter:
+		if stripAccents(natWord)=='':
+			word = natWord
+		else:
+			word = stripAccents(natWord)
+		if word[0].upper()!=currentLetter:
 			currentLetter = stripAccents(natWord[0]).upper()
 			if not currentLetter.isdigit() and not currentLetter.isalpha():
 				if not symbol:
-					f.write(u'\\phantomsection \\addcontentsline{toc}{section}{\\#}\n\\dictchar{\\#}\n')
+					f.write(u'\\dictchar{\\#}\\phantomsection \\addcontentsline{toc}{section}{\\#}\n')
 					symbol = True
 			elif currentLetter.isdigit():
 				if not digit:
-					f.write(u'\\phantomsection \\addcontentsline{toc}{section}{123}\n \\dictchar{123}\n')
+					f.write(u'\\dictchar{123}\\phantomsection\\addcontentsline{toc}{section}{123}\n')
 					digit = True
 			else:
-				f.write(u'\\phantomsection \\addcontentsline{toc}{section}{%s}\n \\dictchar{%s}\n' % (unicode(currentLetter),unicode(currentLetter)))
+				f.write(u'\\dictchar{%s}\\phantomsection\\addcontentsline{toc}{section}{%s}\n' % (unicode(currentLetter),unicode(currentLetter)))
 		f.write(u'\\dictentry{%s}{}{}{' % unicode(natWord))
 		if 'sense' in entry:
 			f.write(entry['sense'])
@@ -107,4 +129,5 @@ def inverseList2TeX(list,f):
 		else:
 			gloss = entry['valsi']
 		f.write('}\n{\\hyperlink{val:%s}{%s}}{}{}{}\n\n'% (unicode(entry['valsi'].replace("'","h")),unicode(gloss)))
+		# f.write('}\n{%s}{}{}{}\n\n'% (unicode(gloss)))
 		

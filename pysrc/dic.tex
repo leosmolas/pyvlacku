@@ -32,23 +32,23 @@
 
 \addcontentsline{toc}{chapter}{Historial de versiones}
 \chapter*{Historial de versiones}
-
+\label{cha:historial}
 Esta es la versión {\bfseries v0.01}, sólo para mí :)
 
 \addcontentsline{toc}{chapter}{Cómo usar este diccionario}
 \chapter*{Cómo usar este diccionario}
-
+\label{cha:howto}
 En el capítulo \textbf{Lojban - Castellano}, encontrará la lista con todos los \textsl{valsi} ordenados alfabéticamente (en el alfabeto de Lojban). Se parecerán a:
 
 \begin{center}
 \begin{minipage}[t]{0.55\textwidth}
-	\dictchar{by.}
-	\dictentry{bacru}{/ba\esh ru/}{g}{}
-	  {}{}{}{$x_{1}$ pronuncia/ dice/ verbaliza/ vocaliza/ hace sonido $x_{2}$ (Ver también krixa, cusku.)}
+	\dictchar{cy.}
+	\dictentry{ce}{/she/}{c}{\textit{cec}\\\textbf{JOI}} %cambiar!!!
+ 	{}{}{}{conector no lógico: enlace de conjunto, no ordenado; formando un conjunto}
 \end{minipage}
 \end{center}
 
-En la columna de la derecha, se encuentra el \textsl{valsi} que se definirá. Estará seguido por una de las siguientes letras, que indicarán el tipo de palabra, según la siguiente lista:
+En la columna de la izquierda, se encuentra el \textsl{valsi} que se definirá. Estará seguido por una de las siguientes letras, que indicarán el tipo de palabra, según la siguiente lista:
 
 \begin{tabular}{ l l }
   \textit{g} & \textbf{\emph{gismu}}  \\
@@ -56,11 +56,13 @@ En la columna de la derecha, se encuentra el \textsl{valsi} que se definirá. Est
   \textit{l} & \textbf{\emph{lujvo}}  \\
   \textit{c} & \textbf{\emph{cmavo}} \\
   \textit{n} & \textbf{\emph{cmene}} \\
+  \textit{cc} & \textbf{\emph{clúster de cmavo}} \\
+  \textit{eg} & \textbf{\emph{experimental gismu}} \\
 \end{tabular}
 
-Abajo del \textsl{valsi}, entre barras (``/'') se encontrará la pronunciación de la palabra, escrita en la representación \textbf{IPA}.
+Abajo del \textsl{valsi}, entre barras (``/'') se encontrará la pronunciación de la palabra, escrita en la representación \textbf{IPA}. Luego, en \textit{itálicas}, puede aparecer el rafsi asociado al \textsl{valsi}. Más abajo, en \textbf{negrita}, puede aparecer el \textsl{selma'o} al que pertenece el \textsl{valsi} (si se trata de un \textsl{cmavo}).
 
-En la columna de la derecha está la definición en castellano, con su correspondiente esctructura de lugares.
+En la columna de la derecha está la definición en castellano, con su correspondiente esctructura de lugares. Debajo de ésta, puede aparecer en \textit{itálicas} un comentario acerca de la definición.
 
 \newpage
 
@@ -99,8 +101,9 @@ En la columna de la derecha está la definición en castellano, con su correspondi
 
 \end{multicols}
 
-\addcontentsline{toc}{chapter}{Copyleft}
+
 \chapter*{Copyleft}
+\addcontentsline{toc}{chapter}{Copyleft}
 El lenguaje \textbf{Lojban} está en Dominio Público, y este libro también lo está por el momento.
 
 Este libro fue generado a partir de datos extraidos de la página de jbovlaste (\url{http://jbovlaste.lojban.org/}), a partir del programa \textbf{\ttfamily pyvalcku}, creado por \textbf{Leo Molas}, y se puede encontrar en \url{http://github.com/leosmolas/pyvlacku}, bajo la licencia GPL v3 (\url{http://www.gnu.org/licenses/gpl.html}).
