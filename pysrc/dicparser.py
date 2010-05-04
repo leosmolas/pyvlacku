@@ -52,10 +52,10 @@ class DicParser(ContentHandler):
 	def parseInverse(self,name,attrs):
 		if name == "nlword":
 			dict = {}
-			dict['word'] = attrs.get('word')
+			dict['word'] = substitute(attrs.get('word'))
 			dict['valsi'] = attrs.get('valsi')
 			if 'sense' in attrs:
-				dict['sense'] = attrs.get('sense')
+				dict['sense'] = substitute(attrs.get('sense'))
 			if 'place' in attrs:
 				dict['place'] = int(attrs.get('place'))
 			self.inverseList += [dict]
