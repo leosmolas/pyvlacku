@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
     # pyvlacku
 	# Lojban dictionary
     # Copyright (C) 2010  Leo Molas
@@ -23,6 +23,7 @@ from xml.sax.handler import feature_namespaces
 from dicparser import DicParser
 import diclatex
 import codecs
+import sys
 
 if __name__ == '__main__':
 	# Create a parser
@@ -40,10 +41,10 @@ if __name__ == '__main__':
     # Parse the input
 	p.parse('spanish.xml')
 	
-	f = codecs.open('jbocas.tex', "w", "mbcs") #mbcs is the ansi codec. for utf: utf_8_sig
+	f = codecs.open('jbocas.tex', "w", sys.getfilesystemencoding()) #this magic function make the script to be OS independant
 	# Create the .tex file from the list obtained, writing the section 
 	diclatex.list2TeX(dh.list, f)
 	f.close()
-	g =  codecs.open('casjbo.tex', "w", "mbcs")
+	g =  codecs.open('casjbo.tex', "w", sys.getfilesystemencoding())
 	diclatex.inverseList2TeX(dh.inverseList,g)
 	g.close()
