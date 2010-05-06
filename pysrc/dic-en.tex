@@ -1,6 +1,6 @@
 \documentclass[ipa,twoside]{report} 
 
-\usepackage[spanish]{babel}
+\usepackage[english]{babel}
 \usepackage[phonetic]{lexikon}
 \usepackage[latin1]{inputenc}
 \usepackage{fullpage}
@@ -9,16 +9,15 @@
 \usepackage{fancyhdr}
 \usepackage{hyphenat}
 \author{Comunidad Lojbánica}
-\title{Diccionario\\Lojban - Castellano\\Castellano - Lojban}
+\title{Lojban - English\\English - Lojban}
 
 \begin{document}
 
-\def\/{\discretionary{.}{}{.}}
-
-
+%this ones are the fields of the dictionary, defined in lexikon.
 \setlength{\leftfield}{0.1\textwidth}
 \setlength{\rightfield}{0.3\textwidth}
-%\setcounter{secnumdepth}{-2} 
+
+%I redifine plain style to make it like fancy, but without the header; just the page number
 \fancypagestyle{plain}{%
 	\fancyhf{}%
 	\fancyfoot[LE,RO]{\thepage}%
@@ -30,25 +29,26 @@
 
 \tableofcontents
 
-\addcontentsline{toc}{chapter}{Historial de versiones}
-\chapter*{Historial de versiones}
-\label{cha:historial}
-Esta es la versión {\bfseries v0.01}, sólo para mí :)
+\addcontentsline{toc}{chapter}{Version history}
+\chapter*{Version history}
+\label{cha:history}
+Version {\bfseries v0.01}.
 
-\addcontentsline{toc}{chapter}{Cómo usar este diccionario}
-\chapter*{Cómo usar este diccionario}
+%I don't have the skills to write this well. If you can, do it :) and let me know
+\addcontentsline{toc}{chapter}{How to use this dictionary}
+\chapter*{How to use this dictionary}
 \label{cha:howto}
-En el capítulo \textbf{Lojban - Castellano}, encontrará la lista con todos los \textsl{valsi} ordenados alfabéticamente (en el alfabeto de Lojban). Se parecerán a:
+In the chapter \textbf{Lojban - English}, you will find the list of all the \textsl{valsi}, in alphabetical order. It will be look like:
 
 \begin{center}
 \begin{minipage}[t]{0.55\textwidth}
 	\dictchar{cy.}
 	\dictentry{ce}{/she/}{c}{\textit{cec}\\\textbf{JOI}} %cambiar!!!
- 	{}{}{}{conector no lógico: enlace de conjunto, no ordenado; formando un conjunto}
+ 	{}{}{}{non-logical connective: set link, unordered; "and also", but forming a set.}
 \end{minipage}
 \end{center}
 
-En la columna de la izquierda, se encuentra el \textsl{valsi} que se definirá. Estará seguido por una de las siguientes letras, que indicarán el tipo de palabra, según la siguiente lista:
+In the left column, you can find the \textsl{valsi} that is being defined. It will be followed by a letter, that stands for the type of the word, as in this list:
 
 \begin{tabular}{ l l }
   \textit{g} & \textbf{\emph{gismu}}  \\
@@ -56,22 +56,23 @@ En la columna de la izquierda, se encuentra el \textsl{valsi} que se definirá. E
   \textit{l} & \textbf{\emph{lujvo}}  \\
   \textit{c} & \textbf{\emph{cmavo}} \\
   \textit{n} & \textbf{\emph{cmene}} \\
-  \textit{cc} & \textbf{\emph{clúster de cmavo}} \\
-  \textit{eg} & \textbf{\emph{gismu experimental}} \\
+  \textit{cc} & \textbf{\emph{cmavo cluster}} \\
+  \textit{eg} & \textbf{\emph{experimental gismu}} \\
 \end{tabular}
 
 Abajo del \textsl{valsi}, entre barras (``/'') se encontrará la pronunciación de la palabra, escrita en la representación \textbf{IPA}. Luego, en \textit{itálicas}, puede aparecer el rafsi asociado al \textsl{valsi}. Más abajo, en \textbf{negrita}, puede aparecer el \textsl{selma'o} al que pertenece el \textsl{valsi} (si se trata de un \textsl{cmavo}).
+
 
 En la columna de la derecha está la definición en castellano, con su correspondiente esctructura de lugares. Debajo de ésta, puede aparecer en \textit{itálicas} un comentario acerca de la definición.
 
 \newpage
 
 \setlength{\headheight}{25pt}
-\fancyhead{}				          % empty out the header
-\fancyfoot{}        				  % empty out the footer
-\fancyhead[LE,LO]{\rightmark} % left side, odd and even pages
-\fancyhead[RE,RO]{\leftmark}  % right side, odd and even pages
-\fancyfoot[LE,RO]{\thepage}   % left side even, right side odd
+\fancyhead{}					 		% empty out the header
+\fancyfoot{}							% empty out the footer
+\fancyhead[LE,LO]{\rightmark}			% left side, odd and even pages
+\fancyhead[RE,RO]{\leftmark}			% right side, odd and even pages
+\fancyfoot[LE,RO]{\thepage}				% left side even, right side odd
 \setlength{\columnseprule}{0.3pt}
 \pagestyle{fancy}
 \thispagestyle{plain}
