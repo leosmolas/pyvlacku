@@ -8,7 +8,8 @@
 \usepackage[colorlinks=true]{hyperref}
 \usepackage{fancyhdr}
 \usepackage{hyphenat}
-\author{Comunidad Lojbánica}
+\usepackage{graphicx}
+\author{The Lojban Community}
 \title{Lojban - English\\English - Lojban}
 
 \begin{document}
@@ -60,30 +61,35 @@ In the left column, you can find the \textsl{valsi} that is being defined. It wi
   \textit{eg} & \textbf{\emph{experimental gismu}} \\
 \end{tabular}
 
-Abajo del \textsl{valsi}, entre barras (``/'') se encontrará la pronunciación de la palabra, escrita en la representación \textbf{IPA}. Luego, en \textit{itálicas}, puede aparecer el rafsi asociado al \textsl{valsi}. Más abajo, en \textbf{negrita}, puede aparecer el \textsl{selma'o} al que pertenece el \textsl{valsi} (si se trata de un \textsl{cmavo}).
+Below the \textsl{valsi}, in between slashes (``/'') you will find the word pronunciation, in the \textbf{IPA} representation. After it, in \textit{italics}, can appear the \textsl{rafsi} associated with the \textsl{valsi}. If the word is a \textsl{cmavo} or a \textsl{cmavo cluster}, it can appear in \textbf{bold}, the \textsl{selma'o} that the \textsl{valsi} belongs to.
 
+In the right column, you will find the definition in English, with its \textbf{place structure}. Below it, in \textit{italics}, can appear a comment about the word.
 
-En la columna de la derecha está la definición en castellano, con su correspondiente esctructura de lugares. Debajo de ésta, puede aparecer en \textit{itálicas} un comentario acerca de la definición.
+\addcontentsline{toc}{chapter}{}
+\chapter*{Version history}
+\label{cha:history}
 
-\newpage
-
+%I don't know if this is working. I should change it...
 \setlength{\headheight}{25pt}
+% here, I redifine the fancyhdr like a dictionary, with the first and last words in the header. The package "lexikon" does the magic here, assigning the words
 \fancyhead{}					 		% empty out the header
 \fancyfoot{}							% empty out the footer
 \fancyhead[LE,LO]{\rightmark}			% left side, odd and even pages
 \fancyhead[RE,RO]{\leftmark}			% right side, odd and even pages
 \fancyfoot[LE,RO]{\thepage}				% left side even, right side odd
+
+%this is the line between the columns
 \setlength{\columnseprule}{0.3pt}
 \pagestyle{fancy}
 \thispagestyle{plain}
 
-\chapter*{Lojban - Castellano}
-\addcontentsline{toc}{chapter}{Lojban - Castellano}
+\chapter*{Lojban - English}
+\addcontentsline{toc}{chapter}{Lojban - English}
 
-\label{cha:lojcas}
+\label{cha:lojen}
 \begin{multicols}{2}
-
-\input{jbocas}
+%this is the file generated with the python script
+%\input{jboen}
   
 \end{multicols}
 
@@ -92,20 +98,67 @@ En la columna de la derecha está la definición en castellano, con su correspondi
 \setlength{\rightfield}{0.25\textwidth}
 
 \thispagestyle{plain}
-\chapter*{Castellano - Lojban}
-\addcontentsline{toc}{chapter}{Castellano - Lojban}
 
-\label{cha:casloj}
+%the inverse dictionary
+\chapter*{English - Lojban}
+\addcontentsline{toc}{chapter}{English - Lojban}
+
+\label{cha:enloj}
 \begin{multicols}{2}
-
-\input{casjbo}
+% this is the other file generated with the python script
+%\input{casjbo}
 
 \end{multicols}
 
-
+% boring legalities
 \chapter*{Copyleft}
 \addcontentsline{toc}{chapter}{Copyleft}
-El lenguaje \textbf{Lojban} está en Dominio Público, y este libro también lo está por el momento.
 
-Este libro fue generado a partir de datos extraidos de la página de jbovlaste (\url{http://jbovlaste.lojban.org/}), a partir del programa \textbf{\ttfamily pyvalcku}, creado por \textbf{Leo Molas}, y se puede encontrar en \url{http://github.com/leosmolas/pyvlacku}, bajo la licencia GPL v3 (\url{http://www.gnu.org/licenses/gpl.html}).
+\pagestyle{plain}
+
+\section*{Lojban}
+\addcontentsline{toc}{section}{Lojban}
+
+Lojban words and grammar are in \textbf{Public Domain}. You can find the grammar in the \textbf{Complete Lojban Language}%
+\footnote{You can download it or purchase it, in \url{http://www.lojban.org/tiki/The+Complete+Lojban+Language}}.
+
+All the words were extracted from the \textsl{jbovlaste} web(\url{http://jbovlaste.lojban.org/}), under the following licence\footnote{Extracted from \url{http://www.lojban.org/tiki/LLG+Web+Copyright+License&bl}}.
+
+\begin{quotation}
+CONTACT THAT ORGANIZATION AT: 2904 BEAU LANE FAIRFAX VA 22031 USA 703-385-0273 lojban@lojban.org
+
+PERMISSION TO COPY INDIVIDUAL DOCUMENTS GRANTED SUBJECT TO YOUR VERIFICATION THAT YOU HAVE THE LATEST VERSION OF THE DOCUMENT IN QUESTION, THAT YOUR DISTRIBUTION BE FOR PROMOTION OF LOJBAN, THAT THERE IS NO CHARGE FOR THE PRODUCT, AND THAT THE COPYRIGHT NOTICE IS INCLUDED INTACT IN THE COPY.
+
+PERMISSION GRANTED FOR USE IN DERIVED WORKS PROVIDED THAT THE FACTS OF DERIVATION IS STATED, AND PROVIDING THE NAME AND ADDRESS OF THE LOGICAL LANGUAGE GROUP, INC. IS PROVIDED AS A SOURCE OF FURTHER INFORMATION ABOUT LOJBAN.
+
+In accordance with the Logical Language Group, Inc. policy, certain Lojban language definition materials are placed irrevocably in the Public Domain.
+
+Individual documents may contain more precise copyright statements.
+
+signed:
+
+Robert LeChevalier President The Logical Language Group, Inc.
+
+This material is being made available without charge by the Logical Language Group for the purpose of broadening interest in the use of the constructed human language ``Lojban - A Realization Of Loglan''.
+
+You are, however, urged to send contributions to the above address in support of the development of the Lojban language. We are a 501(c)(3) non-profit organization and such donations are tax-deductible in the US, to the extent they exceed the price of things we send you. While it costs us little for you to get a copy of the files on the archives, the network is not free. la lojbangirz. spent some \$1500 during 1999 on network access, supporting Lojban List, the archives, and responding to people like you. We do not make a profit on our printed materials, so it is your donations that will allow us to continue to serve the network community of Lojbanists and people curious about Lojban.
+\end{quotation}
+
+\section*{This book}
+\addcontentsline{toc}{section}{This book}
+
+\begin{center}
+	\includegraphics{cc-by-nc-sa.png}
+\end{center}
+
+\begin{quotation}
+This work is licensed under the Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License. To view a copy of this license, visit \url{http://creativecommons.org/licenses/by-nc-sa/3.0/} or send a letter to Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA.
+\end{quotation}
+
+So...
+\begin{quotation}
+asdasd
+\end{quotation}
+You can print this book for you (or anybody
+
 \end{document}
