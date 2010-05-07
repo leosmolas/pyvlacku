@@ -25,6 +25,10 @@ import diclatex
 import codecs
 import sys
 
+# this should be called with three parameters: 
+# first, the xml
+# then, the direct dictionary
+# finally, the inverse dictionary
 if __name__ == '__main__':
 	# Create a parser
 	p = make_parser()
