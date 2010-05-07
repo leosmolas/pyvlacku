@@ -1,3 +1,10 @@
+% This work is licensed under the Creative Commons 
+% Attribution-Noncommercial-Share Alike 3.0 Unported License. To view a 
+% copy of this license, visit 
+% http://creativecommons.org/licenses/by-nc-sa/3.0/ or send a letter to 
+% Creative Commons, 171 Second Street, Suite 300, San Francisco, 
+% California, 94105, USA. 
+
 \documentclass[ipa,twoside]{report} 
 
 \usepackage[english]{babel}
@@ -9,6 +16,8 @@
 \usepackage{fancyhdr}
 \usepackage{hyphenat}
 \usepackage{graphicx}
+\usepackage{array}
+
 \author{The Lojban Community}
 \title{Lojban - English\\English - Lojban}
 
@@ -64,10 +73,10 @@ In the left column, you can find the \textsl{valsi} that is being defined. It wi
 Below the \textsl{valsi}, in between slashes (``/'') you will find the word pronunciation, in the \textbf{IPA} representation. After it, in \textit{italics}, can appear the \textsl{rafsi} associated with the \textsl{valsi}. If the word is a \textsl{cmavo} or a \textsl{cmavo cluster}, it can appear in \textbf{bold}, the \textsl{selma'o} that the \textsl{valsi} belongs to.
 
 In the right column, you will find the definition in English, with its \textbf{place structure}. Below it, in \textit{italics}, can appear a comment about the word.
-
-\addcontentsline{toc}{chapter}{}
-\chapter*{Version history}
-\label{cha:history}
+%
+%\addcontentsline{toc}{chapter}{}
+%\chapter*{Version history}
+%\label{cha:history}
 
 %I don't know if this is working. I should change it...
 \setlength{\headheight}{25pt}
@@ -148,7 +157,7 @@ You are, however, urged to send contributions to the above address in support of
 \addcontentsline{toc}{section}{This book}
 
 \begin{center}
-	\includegraphics{cc-by-nc-sa.png}
+	\includegraphics{img/by-nc-sa.png}
 \end{center}
 
 \begin{quotation}
@@ -157,8 +166,22 @@ This work is licensed under the Creative Commons Attribution-Noncommercial-Share
 
 So...
 \begin{quotation}
-asdasd
+
+\subsection*{You are free}
+
+\begin{tabular}{ l l }
+  \includegraphics[width=4em]{img/sharelarge.png} & \textbf{to Share} --- to copy, distribute and transmit the work  \\
+  \includegraphics[width=4em]{img/remixlarge.png} & \textbf{to Remix} --- to adapt the work  \\
+\end{tabular}
+
+\subsection*{Under the following conditions}
+
+\begin{tabular}{ l m{40em} }
+  \includegraphics[width=3em]{img/sharelarge.png} & \textbf{to Share} --- to copy, distribute and transmit the work  \\
+  \includegraphics[width=3em]{img/remixlarge.png} & \textbf{to Remix} --- to adapt the work  \\
+\end{tabular}
+
 \end{quotation}
-You can print this book for you (or anybody
+
 
 \end{document}
