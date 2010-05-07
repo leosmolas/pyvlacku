@@ -28,7 +28,8 @@ type2short = {	'gismu':'g',
 				'cmene':'n',
 				'cmavo':'c',
 				'cmavo cluster':'cc',
-				'experimental gismu':'eg'}
+				'experimental gismu':'eg',
+				'experimental cmavo':'ec'}
 
 #this go from place structure to the SE selma'o
 place2SE = {2:u'se ',
@@ -36,17 +37,6 @@ place2SE = {2:u'se ',
 			4:u've ',
 			5:u'xe '}
 			
-# def place2SE(i):
-	# if i == 2:
-		# return 'se '
-	# elif i == 3:
-		# return 'te '
-	# elif i == 4:
-		# return 've '
-	# elif i == 5:
-		# return 'xe '
-	# else:
-		# return ''
 
 def letter2jbo(letter):
 	letter.lower()
@@ -73,13 +63,14 @@ def breakSlashes(s):
 	return re.sub('/',r'\\fshyp{}\\discretionary{}{}{}',s)
 
 def list2TeX (list,f):
+	list = sorted(list, key = lambda list:stripAccents(list['word']).lower()) 
 	result = ""
 	currentLetter = ' '
 	for i in range(len(list)):
 		valsi = list[i]
 		word = valsi['word']
 		type = valsi['type']
-		if word[0]!=currentLetter:
+		if word[0].lower()!=currentLetter:
 			currentLetter = word[0]
 			newLetter = letter2jbo(currentLetter)
 			f.write(u'\\phantomsection\\addcontentsline{toc}{section}{%s} \\dictchar{%s}\n' % (unicode(newLetter),unicode(newLetter)))
@@ -91,7 +82,7 @@ def list2TeX (list,f):
 			f.write('\\textbf{%s}' % valsi['selmaho'])
 		f.write(u'}\n {}{}{}{%s'% breakSlashes(valsi['definition']))
 		if 'notes' in valsi:
-			f.write(u'\\\\ \\textit{%s}' % braces2links(valsi['notes']))
+			f.write(u'\\\\ \\textit{%s}' % breakSlashes(braces2links(valsi['notes'])))
 		f.write(u'}\n\n')
 
 def inverseList2TeX(list,f):

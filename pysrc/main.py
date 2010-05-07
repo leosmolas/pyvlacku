@@ -25,11 +25,40 @@ import diclatex
 import codecs
 import sys
 
-# this should be called with three parameters: 
-# first, the xml
-# then, the direct dictionary
-# finally, the inverse dictionary
+"""The program should be called with three parameters: 
+First, the xml
+Then, the direct dictionary
+Finally, the inverse dictionary
+The default values are 'english.xml', 'lojen.tex' and 'enloj.tex', respectively.
+If it's called with only one argument, it is taken as the xml file
+If it's called with two, the program ignores the second one.
+If it's calle with more than three, the program ignores the latests
+If any of the parameters is '--help', the program print this"""
+
 if __name__ == '__main__':
+#count returns the number of aparitions of the parameter
+	if sys.argv.count('--help')>0:
+		print """The program should be called with three parameters: 
+First, the xml
+Then, the direct dictionary
+Finally, the inverse dictionary
+The default values are 'english.xml', 'lojen.tex' and 'enloj.tex', respectively.
+If it's called with only one argument, it is taken as the xml file
+If it's called with two, the program ignores the second one.
+If it's calle with more than three, the program ignores the latests
+If any of the parameters is '--help', the program print this"""
+	elif len(sys.argv)>3:
+		xml     = sys.argv[1]
+		direct  = sys.argv[2]
+		inverse = sys.argv[3]
+	elif len(sys.argv)>1:
+		xml     = sys.argv[1]
+		direct  = 'lojen.tex'
+		inverse = 'enloj.tex'
+	else:
+		xml     = 'english.xml'
+		direct  = 'lojen.tex'
+		inverse = 'enloj.tex'
 	# Create a parser
 	p = make_parser()
 
@@ -43,12 +72,13 @@ if __name__ == '__main__':
 	p.setContentHandler(dh)
 
     # Parse the input
-	p.parse('spanish.xml')
+	p.parse(xml)
 	
-	f = codecs.open('jbocas.tex', "w", sys.getfilesystemencoding()) #this magic function make the script to be OS independant
+	f = codecs.open(direct, "w", sys.getfilesystemencoding()) #this magic function make the script to be OS independant 
+	#you might change it with 'mbcs' (ansi) or 'utf-8'
 	# Create the .tex file from the list obtained, writing the section 
 	diclatex.list2TeX(dh.list, f)
 	f.close()
-	g =  codecs.open('casjbo.tex', "w", sys.getfilesystemencoding())
+	g =  codecs.open(inverse, "w", sys.getfilesystemencoding())
 	diclatex.inverseList2TeX(dh.inverseList,g)
 	g.close()

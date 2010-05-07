@@ -20,7 +20,13 @@
 from xml.sax import ContentHandler
 import string
 
-escape= {'&':'\\&','%':'\\%','#':'\\#'}
+escape= {'\\':'\\backslash ',
+		 '&':'\\&',
+		 '%':'\\%',
+		 '#':'\\#',
+		 '{':'\\{',
+		 '}':'\\{'
+		 }
 
 def substitute(s):
 	keys = escape.keys()
