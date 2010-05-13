@@ -69,8 +69,6 @@ def list2TeX (list,f):
 	for i in range(len(list)):
 		valsi = list[i]
 		word = valsi['word']
-		if word == 'brabra':
-			print valsi['notes']
 		type = valsi['type']
 		if word[0].lower()!=currentLetter:
 			currentLetter = word[0]
