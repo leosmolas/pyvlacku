@@ -19,18 +19,20 @@
 	#My e-mail: leos(dot)molas(at)gmail(dot)com
 from xml.sax import ContentHandler
 import string
+import re
 
-escape= {'\\':'\\backslash ',
-		 '&':'\\&',
+escape= {'&':'\\&',
 		 '%':'\\%',
 		 '#':'\\#',
 		 '{':'\\{',
-		 '}':'\\{'
+		 '}':'\\{',
+		 '\\':'/'
 		 }
 
 def substitute(s):
 	keys = escape.keys()
 	for i in range(len(keys)):
+		# s = re.sub(r'\\', r'\\backslash ',s)
 		s = s.replace(keys[i],escape[keys[i]])
 	return s
 
