@@ -21,12 +21,15 @@ from xml.sax import ContentHandler
 import string
 import re
 
-escape= {'&':'\\&',
-		 '%':'\\%',
-		 '#':'\\#',
-		 '{':'\\{',
-		 '}':'\\{',
-		 '\\':'/'
+escape= {u'&':u'\\&',
+		 u'%':u'\\%',
+		 u'#':u'\\#',
+		 # '{':'\\{',
+		 # '}':'\\{',
+		 u'\n':u'',
+		 # '\\':'/'
+		 u'€':u'\euro', #this command is provided by the package eurosym
+		 u'’':u"'"
 		 }
 
 def substitute(s):

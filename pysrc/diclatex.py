@@ -69,6 +69,8 @@ def list2TeX (list,f):
 	for i in range(len(list)):
 		valsi = list[i]
 		word = valsi['word']
+		if word == 'brabra':
+			print valsi['notes']
 		type = valsi['type']
 		if word[0].lower()!=currentLetter:
 			currentLetter = word[0]
@@ -114,7 +116,7 @@ def inverseList2TeX(list,f):
 				f.write(u'\\dictchar{%s}\\phantomsection\\addcontentsline{toc}{section}{%s}\n' % (unicode(currentLetter),unicode(currentLetter)))
 		f.write(u'\\dictentry{%s}{}{}{' % unicode(natWord))
 		if 'sense' in entry:
-			f.write(entry['sense'])
+			f.write(breakSlashes(entry['sense']))
 		if 'place' in entry:
 			gloss = place2SE.get(entry['place'],u'') + entry['valsi']
 		else:
