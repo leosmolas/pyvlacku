@@ -40,10 +40,8 @@ place2SE = {2:u'se ',
 
 def letter2jbo(letter):
 	letter.lower()
-	if letter in ('a','e','i','o','u'):
+	if letter in ('a','e','i','o','u','y'):
 		return '.' + letter + 'bu'
-	elif letter=='y':
-		return "y'y"
 	else:
 		return letter + 'y.'
 
